@@ -32,11 +32,12 @@ ratio = compressed_size / original_size
 print(f"Compression Ratio: {ratio:.2f}")
 
 # Visualization
-plt.figure(figsize=(10, 5))
+fig = plt.figure(figsize=(10, 5))
+fig.suptitle('Image Compression Visualization')
 plt.subplot(1, 2, 1)
 plt.title('Original Image')
 plt.imshow(original, cmap='gray')
 plt.subplot(1, 2, 2)
-plt.title(f"Rank-{50} Compressed Image")
+plt.title(f"Rank-{50} Compressed Image\nCompression Ratio: {ratio:.2f}")
 plt.imshow(compressed, cmap='gray')
 plt.show()
