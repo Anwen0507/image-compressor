@@ -21,3 +21,22 @@ def compress(image_path, k):
 
     return A, A_k, U_k, S_k, Vt_k
 
+# Test run
+original, compressed, Uk, Sk, Vtk = compress('example.jpg', 50)
+
+# Calculate data savings
+m, n = original.shape
+original_size = m * n
+compressed_size = (m * 50) + (50 * 50) + (50 * n)
+ratio = compressed_size / original_size
+print(f"Compression Ratio: {ratio:.2f}")
+
+# Visualization
+plt.figure(figsize=(10, 5))
+plt.subplot(1, 2, 1)
+plt.title('Original Image')
+plt.imshow(original, cmap='gray')
+plt.subplot(1, 2, 2)
+plt.title(f"Rank-{50} Compressed Image")
+plt.imshow(compressed, cmap='gray')
+plt.show()
