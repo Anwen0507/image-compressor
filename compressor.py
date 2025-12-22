@@ -1,5 +1,6 @@
 import numpy as np
 import matplotlib.pyplot as plt
+from scipy import linalg
 from PIL import Image
 
 def compress(image_path, k):
@@ -9,8 +10,7 @@ def compress(image_path, k):
 
     # Computer Singular Value Decomposition
     # As noted, libraries use bidiagonalization and QR decomposition to optimize
-    U, S, Vt = np.linalg.svd(A, full_matrices=False)
-
+    U, S, Vt = linalg.svd(A, full_matrices=False, lapack_driver='gesvd')
     # Truncate to rank k
     U_k = U[:, :k]
     S_k = np.diag(S[:k])
