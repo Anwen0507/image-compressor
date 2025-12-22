@@ -29,7 +29,6 @@ m, n = original.shape
 original_size = m * n
 compressed_size = (m * 50) + (50 * 50) + (50 * n)
 ratio = compressed_size / original_size
-print(f"Compression Ratio: {ratio:.2f}")
 
 # Visualization
 fig = plt.figure(figsize=(10, 5))
